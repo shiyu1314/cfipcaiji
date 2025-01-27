@@ -3,9 +3,10 @@ from bs4 import BeautifulSoup
 import re
 import os
 
-# 目标URL列表，只保留 https://ip.164746.xyz
+# 目标URL列表，现在包含 https://ip.164746.xyz 和 https://cf.090227.xyz
 urls = [
-    'https://ip.164746.xyz'
+    'https://ip.164746.xyz',
+    'https://cf.090227.xyz'
 ]
 
 # 正则表达式用于匹配合法的IP地址
@@ -31,6 +32,8 @@ for url in urls:
         # 根据网站的不同结构找到包含IP地址的元素
         if url == 'https://ip.164746.xyz':
             elements = soup.find_all('tr')  # 假设IP在tr标签中
+        elif url == 'https://cf.090227.xyz':
+            elements = soup.find_all('tr')  # 假设IP也在tr标签中
         
         # 遍历所有元素，查找IP地址
         for element in elements:
