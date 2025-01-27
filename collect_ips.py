@@ -47,6 +47,7 @@ for url in urls:
 ip_addresses = list(set(ip_addresses))  # 去重
 with open('ip.txt', 'w') as file:
     for ip in ip_addresses:
-        file.write(ip + '\n')
+        # 在每个IP后面加上 #优选IP
+        file.write(f"{ip}#优选IP\n")
 
 print('IP地址已保存到ip.txt文件中。')
